@@ -1,0 +1,259 @@
+-- Punto 1
+CREATE TABLE vendite(
+id_tr INT UNIQUE NOT NULL PRIMARY KEY,
+categoria VARCHAR(255),
+costo INT,
+sconto DOUBLE(4,3));
+
+CREATE TABLE dettagli_vendite(
+id_vendita INT NOT NULL PRIMARY KEY,
+data_transazione DATE,
+qta INT);
+
+-- Punto 2
+INSERT INTO vendite (id_tr, categoria, costo, sconto) VALUES
+  (1, 'Airbus A220', 201000000, 0.35),
+  (2, 'Airbus A321', 190000000, 0.28),
+  (3, 'Airbus A321', 120000000, 0.2),
+  (4, 'Airbus A330', 840000000, 0.45),
+  (5, 'Airbus A350', 245000000, 0.15),
+  (6, 'Airbus A220', 134000000, 0.32),
+  (7, 'Airbus A320', 285000000, 0.38),
+  (8, 'Airbus A320', 168000000, 0.42),
+  (9, 'Airbus A330', 420000000, 0.25),
+  (10, 'Airbus A350', 245000000, 0.18),
+  (11, 'Airbus A220', 268000000, 0.4),
+  (12, 'Airbus A320', 95000000, 0.22),
+  (13, 'Airbus A321', 360000000, 0.37),
+  (14, 'Airbus A330', 210000000, 0.17),
+  (15, 'Airbus A350', 490000000, 0.3),
+  (16, 'Airbus A320', 201000000, 0.35),
+  (17, 'Airbus A320', 190000000, 0.28),
+  (18, 'Airbus A321', 120000000, 0.2),
+  (19, 'Airbus A330', 840000000, 0.45),
+  (20, 'Airbus A350', 245000000, 0.15),
+  (21, 'Airbus A220', 134000000, 0.32),
+  (22, 'Airbus A320', 285000000, 0.38),
+  (23, 'Airbus A321', 168000000, 0.42),
+  (24, 'Airbus A330', 420000000, 0.25),
+  (25, 'Airbus A350', 245000000, 0.18),
+  (26, 'Airbus A220', 268000000, 0.4),
+  (27, 'Airbus A320', 95000000, 0.22),
+  (28, 'Airbus A321', 360000000, 0.37),
+  (29, 'Airbus A350', 210000000, 0.17),
+  (30, 'Airbus A350', 490000000, 0.3),
+  (31, 'Airbus A220', 201000000, 0.35),
+  (32, 'Airbus A320', 190000000, 0.28),
+  (33, 'Airbus A321', 120000000, 0.2),
+  (34, 'Airbus A350', 840000000, 0.45),
+  (35, 'Airbus A350', 245000000, 0.15),
+  (36, 'Airbus A220', 134000000, 0.32),
+  (37, 'Airbus A321', 285000000, 0.38),
+  (38, 'Airbus A321', 168000000, 0.42),
+  (39, 'Airbus A330', 420000000, 0.25),
+  (40, 'Airbus A350', 245000000, 0.18),
+  (41, 'Airbus A320', 268000000, 0.4),
+  (42, 'Airbus A320', 95000000, 0.22),
+  (43, 'Airbus A320', 360000000, 0.37),
+  (44, 'Airbus A350', 210000000, 0.17),
+  (45, 'Airbus A350', 490000000, 0.3);
+
+  
+INSERT INTO dettagli_vendite (id_vendita, data_transazione, qta) VALUES
+  (1, '2023-01-08', 3),
+  (2, '2023-01-08', 2),
+  (3, '2023-01-08', 1),
+  (4, '2023-01-15', 4),
+  (5, '2023-01-15', 1),
+  (6, '2023-01-20', 2),
+  (7, '2023-01-20', 3),
+  (8, '2023-01-20', 4),
+  (9, '2023-01-30', 2),
+  (10, '2023-02-05', 1),
+  (11, '2023-02-08', 2),
+  (12, '2023-02-12', 4),
+  (13, '2023-02-15', 1),
+  (14, '2023-02-18', 3),
+  (15, '2023-02-21', 2),
+  (16, '2023-02-25', 1),
+  (17, '2023-03-04', 3),
+  (18, '2023-03-08', 2),
+  (19, '2023-03-28', 4),
+  (20, '2023-04-01', 3),
+  (21, '2023-04-05', 2),
+  (22, '2023-04-09', 4),
+  (23, '2023-04-25', 1),
+  (24, '2023-04-29', 4),
+  (25, '2023-05-03', 2),
+  (26, '2023-05-07', 3),
+  (27, '2023-05-11', 4),
+  (28, '2023-05-11', 1),
+  (29, '2023-05-11', 2),
+  (30, '2023-05-11', 3),
+  (31, '2023-06-04', 3),
+  (32, '2023-06-08', 2),
+  (33, '2023-06-12', 1),
+  (34, '2023-06-16', 3),
+  (35, '2023-07-03', 4),
+  (36, '2023-07-05', 3),
+  (37, '2023-08-20', 1),
+  (38, '2023-08-20', 4),
+  (39, '2023-09-13', 1),
+  (40, '2023-09-17', 2),
+  (41, '2023-09-17', 3),
+  (42, '2023-10-12', 4),
+  (43, '2023-10-12', 1),
+  (44, '2023-10-20', 3),
+  (45, '2023-11-24', 2);
+
+
+ALTER TABLE dettagli_vendite
+ADD FOREIGN KEY (id_vendita)
+REFERENCES vendite(id_tr);
+ 
+-- PUNTO 3: Seleziono le vendite avvenute in un giorno casuale.  
+SELECT id_vendita, qta
+FROM dettagli_vendite
+WHERE data_transazione = '2023-05-11';
+
+-- Cerco tutte le vendite che hanno uno sconto supriore al 50%
+SELECT id_tr, categoria, costo
+FROM vendite
+WHERE sconto>0.50;
+
+-- PUNTO 4: Trovo il totale dalle vendite di ogni categoria 
+SELECT categoria, SUM(vendite.costo) AS Aggregato
+FROM vendite
+GROUP BY categoria
+ORDER BY Aggregato DESC;
+
+-- Trovo il numero di vendite per categoria
+SELECT categoria, COUNT(categoria) AS Numero_vendite
+FROM vendite
+GROUP BY categoria
+ORDER BY Numero_vendite DESC;
+
+-- PUNTO 5: Seleziono le transazioni effettuate nell'ultimo trimestre
+SELECT id_vendita, qta, data_transazione
+FROM dettagli_vendite 
+WHERE MONTH(data_transazione) IN (10, 11, 12);
+
+-- Raggruppo tutti guadagni per mese
+CREATE TABLE Andamento_mensile AS
+SELECT MONTH(b.data_transazione) AS Mese, SUM(a.costo) AS Costo_agg
+FROM vendite a
+JOIN dettagli_vendite b
+ON a.id_tr=b.id_vendita
+GROUP BY Mese
+ORDER BY Mese ASC;
+
+SELECT * FROM Andamento_mensile;
+
+-- PUNTO 7: Trovo quale aereo ha ottenuto uno sconto medio maggiore
+SELECT ROUND(AVG(sconto),2) AS Sconto_medio, categoria
+FROM vendite
+GROUP BY categoria
+ORDER BY Sconto_medio DESC;
+
+-- PUNTO 8: Verifico mese per mese la crescita o decrescita dei guadagni
+SELECT a.Mese, a.Costo_agg,
+  ROUND(((a.Costo_agg - b.Costo_agg) / b.Costo_agg) * 100, 3) AS Aumento_percentuale
+FROM Andamento_mensile a
+LEFT JOIN Andamento_mensile b 
+ON a.Mese = b.Mese + 1;
+
+-- PUNTO 9: Considerate le stagioni come trimestri, si confrontano i guadagni
+CREATE TABLE Andamento_trimestrale AS
+SELECT ROUND((Mese+1)/3,0) AS Trimestre, SUM(Costo_agg) AS Guadagno_trimestrale
+FROM Andamento_mensile
+GROUP BY Trimestre
+ORDER BY Trimestre ASC;
+
+SELECT a.Trimestre, a.Guadagno_trimestrale,
+  ROUND(((a.Guadagno_trimestrale - b.Guadagno_trimestrale) / b.Guadagno_trimestrale) * 100, 3) AS Aumento_percentuale
+FROM Andamento_trimestrale a
+LEFT JOIN Andamento_trimestrale b 
+ON a.Trimestre = b.Trimestre + 1;
+
+-- PUNTO 10: Assegnando 7 clienti casuali, otteniamo i 5 migliori clienti.
+
+CREATE TABLE Clienti (
+  IDVendita INT PRIMARY KEY,
+  IDCliente INT
+);
+
+INSERT INTO Clienti (IDVendita, IDCliente) VALUES
+  (1, 1),
+  (2, 2),
+  (3, 3),
+  (4, 4),
+  (5, 5),
+  (6, 6),
+  (7, 7),
+  (8, 1),
+  (9, 2),
+  (10, 3),
+  (11, 4),
+  (12, 5),
+  (13, 6),
+  (14, 7),
+  (15, 1),
+  (16, 2),
+  (17, 3),
+  (18, 4),
+  (19, 5),
+  (20, 6),
+  (21, 7),
+  (22, 1),
+  (23, 2),
+  (24, 3),
+  (25, 4),
+  (26, 5),
+  (27, 6),
+  (28, 7),
+  (29, 1),
+  (30, 2),
+  (31, 3),
+  (32, 4),
+  (33, 5),
+  (34, 6),
+  (35, 7),
+  (36, 1),
+  (37, 2),
+  (38, 3),
+  (39, 4),
+  (40, 5),
+  (41, 6),
+  (42, 7),
+  (43, 1),
+  (44, 2),
+  (45, 3);
+
+ALTER TABLE Clienti
+ADD FOREIGN KEY (IDVendita)
+REFERENCES vendite(id_tr);
+
+SELECT b.IDCliente, SUM(a.qta) AS Tot_vendite
+FROM dettagli_vendite a
+JOIN Clienti b
+ON b.IDVendita = a.id_vendita
+GROUP BY b.IDCliente
+ORDER BY Tot_vendite DESC;
+
+
+/*
+Inizio:
+I dataset sono riferiti alle vendite di alcuni modelli di aeroplano, dalla azienda Airbus, dove a seguito di sconti, 
+allestimenti differenti, ottengono un costo pari alla terza colonna della tabella vendite. Il costo è già comprensivo di
+sconto e quantità.
+Spiegazione risoluzione esercizi:
+ES 5): Per facilitare gli esercizi successivi, utilizziamo il comando CREATE TABLE, ed in seguito ho fatto la JOIN, che 
+mi ha consentito di unire un riferimento temporale con quello di costi. Infine ho richiamato la tabella completa con un semplice 
+SELECT.
+ES 7): Al fine di non ottenere valori troppo grandi, si è preferito usare una approsimazione di due cifre decimali, con ROUND.  
+ES 8): In questo caso si è fatta una LEFT JOIN, che ha permesso di ottenere i due valori distinti, ovvero quello iniziale, quello del mese 
+corrente, sia il secondo, ovvero il valore del mese precedente. Moltiplicato poi per 100 per ottenere %.
+ES 9): In questo caso utilizziamo la tecnica del punto 7, usando una formula, che ci permettesse di ottenere dei valori che approssimati,
+sempre attraverso ROUND, fossero interi. Così facendo i primi tre mesi risultano appartenenti al primo semestre, dal quarto al sesto al
+secondo semestre. Si segue poi la tecnica al punto 8 anche per il trimestre. 
+*/
